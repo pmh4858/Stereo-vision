@@ -6,8 +6,6 @@
 using namespace std;
 using namespace cv;
 
-Mat leftimg, rightimg;
-
 /*Depth_map 생성 메소드*/
 void depth_map(Mat leftimg, Mat rightimg)
 {
@@ -38,7 +36,7 @@ void depth_map(Mat leftimg, Mat rightimg)
 	normalize(disp_left, disp8, 0, 255, CV_MINMAX, CV_8U);
 
 	/*Depth_map 이미지 작성*/
-	imwrite("image/depth_map.png", disp8);
+	imwrite("depth_map/depth_map.png", disp8);
 
 	/*Depth_map 이미지 출력*/
 	namedWindow("depth map", WINDOW_AUTOSIZE);
@@ -51,6 +49,8 @@ void depth_map(Mat leftimg, Mat rightimg)
 
 int main()
 {
+	Mat leftimg, rightimg;
+
 	leftimg = imread("image/leftimg2.jpg", IMREAD_COLOR); //왼측 카메라
 	rightimg = imread("image/rightimg2.jpg", IMREAD_COLOR); //우측 카메라
 
