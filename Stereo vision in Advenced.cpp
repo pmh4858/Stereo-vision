@@ -43,7 +43,6 @@ void depth_map(Mat leftimg, Mat rightimg)
 	imshow("depth map", disp8);
 
 	waitKey(0);
-
 	return;
 }
 
