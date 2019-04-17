@@ -7,34 +7,10 @@
 using namespace std;
 using namespace cv;
 
-/*depth_map.txt 가공*/
+/*depth_map 가공*/
 void depth_map_processing()
 {
-	char processing[1080][1920]; //FHD 기준
-	char tmp;
-
-	/*depth_map.txt input*/
-	ifstream findep("depth_map/depth_map.txt");
-	if (!findep) {
-		cerr << "Cannot open depth_map.txt for read." << endl;
-		return;
-	}
-
-	for (int i = 0; i < 1080; i++) {
-		for (int j = 0; j < 1920; j++) {
-			findep >> tmp;
-			if (tmp <= 255 && 0 < tmp) findep >> processing[i][j];
-			else if (processing[i][j] == ';') break;
-			else i = i - 1;
-		}
-	}
-
-	/*depth_map_processing.txt output*/
-	ofstream foutpro("depth_map/depth_map_processing.txt");
-	if (!foutpro) {
-		cerr << "Cannot open depth_map_processing.txt for write." << endl;
-		return;
-	}
+	/*여기 코딩하면 됩니다.*/
 }
 
 /*Depth_map 텍스트 파일 출력*/
@@ -49,7 +25,7 @@ void depth_map_stream(Mat disp8)
 
 	foutdep << disp8;
 	
-	/*depth_map.txt 가공*/
+	/*depth_map 가공*/
 	//depth_map_processing();
 }
 
